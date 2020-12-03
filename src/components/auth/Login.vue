@@ -1,10 +1,5 @@
 <template>
-  <base-card>
-    <template slot="card-title">
-      <h4 class="center">Login</h4>
-    </template>
-
-    <template slot="card-content">
+  <div>
       <form class="row">
         <text-input
           input-label="Username"
@@ -12,6 +7,8 @@
           i-d="username"
           :input-type="'email'"
           :visual-classes="visualClasses"
+          :value="userName"
+          v-model="userName"
         />
         <text-input
           input-label="Password"
@@ -19,6 +16,8 @@
           i-d="password"
           :input-type="'password'"
           :visual-classes="visualClasses"
+          :value="password"
+          v-model="password"
         />
         <base-button
           :button-classes="buttonClasses"
@@ -26,8 +25,7 @@
           button-type="submit"
         >Login</base-button>
       </form>
-    </template>
-  </base-card>
+  </div>
 </template>
 <script>
 import BaseCard from "@/components/generics/BaseCard.vue";
@@ -40,6 +38,12 @@ export default {
     BaseCard,
     TextInput,
     BaseButton,
+  },
+  data(){
+     return {
+         userName: '',
+         password: ''
+     }
   },
   computed: {
     visualClasses() {
